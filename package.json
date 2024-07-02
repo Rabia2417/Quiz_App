@@ -1,6 +1,6 @@
 {
   "name": "quiz",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "createQuiz.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +13,20 @@
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "fs": "^0.0.1-security"
-  }
+  },
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
+  ]
+}
+
 }
